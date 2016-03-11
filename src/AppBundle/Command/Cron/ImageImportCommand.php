@@ -34,7 +34,7 @@ class ImageImportCommand extends ContainerAwareCommand
 
         $image = new Image();
 
-        $uploadable->addEntityFileInfo($image, new CustomFileInfo('http://media.bigshinyrobot.com/uploads/2014/04/captain_planet.jpg'));
+        $uploadable->addEntityFileInfo($image, new CustomFileInfo('/home/brice/Images/dijon.jpg'));
 
         $manager->persist($image);
         $manager->flush();

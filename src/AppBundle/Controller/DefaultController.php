@@ -26,8 +26,9 @@ class DefaultController extends Controller
         $image = new Image();
         $form = $this->createForm(new ImageType(), $image);
 
+        $manager = $this->getDoctrine()->getManager();
+
         if ($form->handleRequest($request)->isValid()) {
-            $manager = $this->getDoctrine()->getManager();
 
             if ($file = $image->getFile()) {
                 $this->get('stof_doctrine_extensions.uploadable.manager')->markEntityToUpload($image, $file);
@@ -39,8 +40,11 @@ class DefaultController extends Controller
             return $this->redirectToRoute('uploadable');
         }
 
+        $images = $manager->getRepository('AppBundle:Image')->findAll();
+
         return [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'images' => $images,
         ];
     }
 }

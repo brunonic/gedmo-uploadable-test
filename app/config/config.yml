@@ -67,6 +67,9 @@ swiftmailer:
 
 # Stof
 stof_doctrine_extensions:
+    uploadable:
+        default_file_path:       %kernel.root_dir%/../web/
+
     orm:
         default:
             uploadable: true
