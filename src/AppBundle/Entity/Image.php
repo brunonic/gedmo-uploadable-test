@@ -50,9 +50,9 @@ class Image
     /**
      * @return string
      */
-    public function getUploadableDirPath()
+    public function getUploadableDirPath($path)
     {
-        return 'uploads/image';
+        return $path.'uploads/image';
     }
 
     /**

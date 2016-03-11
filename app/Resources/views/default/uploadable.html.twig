@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <ul>
+        {% for image in images %}
+            <li>{{ image.path }}</li>
+        {% endfor %}
+    </ul>
+
     <form action="" method="post" {{ form_enctype(form) }}>
         {{ form_rest(form) }}
     </form>
